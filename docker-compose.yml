@@ -1,0 +1,23 @@
+services:
+  apache:
+    build: ./apache
+    container_name: apache_proxy
+    ports:
+      - "8080:80"
+    volumes:
+      - ./apache/httpd.conf:/etc/apache2/sites-available/000-default.conf
+    depends_on:
+      - backend1
+      - backend2
+
+  backend1:
+    build: ./backend1
+    container_name: backend1
+    ports:
+      - "5000:5000"
+
+  backend2:
+    build: ./backend2
+    container_name: backend2
+    ports:
+      - "5001:5001"
