@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-app.get("/search", (req, res) => {
+app.get("/address/v1/search", (req, res) => {
   const queryParams = req.query;
   res.json({
     message: "GET request handled by Backend 1",
